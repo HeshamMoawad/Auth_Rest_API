@@ -35,7 +35,7 @@ class MacAddress(models.Model):
     agent_name = models.CharField(max_length=100,verbose_name='Agent Name',null=True,blank=True)
 
     def __str__(self):
-        return self.mac_address
+        return self.agent_name
 
     class Meta:
         verbose_name = 'Mac Address'
