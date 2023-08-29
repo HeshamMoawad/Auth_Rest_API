@@ -1,36 +1,36 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser , User
 
 
-class Agent(AbstractUser):
-    user_permissions = models.ManyToManyField(
-        'auth.Permission',
-        related_name='marketer_user_set',
-        blank=True,
-        help_text='Specific permissions for this user.',
-        verbose_name='agent permissions',
-    )
-    groups = models.ManyToManyField(
-        'auth.Group',
-        related_name='marketer_user_set',
-        blank=True,
-        help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
-        verbose_name='groups',
-    )
+# class Agent(AbstractUser):
+#     user_permissions = models.ManyToManyField(
+#         'auth.Permission',
+#         related_name='marketer_user_set',
+#         blank=True,
+#         help_text='Specific permissions for this user.',
+#         verbose_name='agent permissions',
+#     )
+#     groups = models.ManyToManyField(
+#         'auth.Group',
+#         related_name='marketer_user_set',
+#         blank=True,
+#         help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
+#         verbose_name='groups',
+#     )
 
-    USERNAME_FIELD = "username"
-    REQUIRED_FIELDS = []
+#     USERNAME_FIELD = "username"
+#     REQUIRED_FIELDS = []
 
-    class Meta:
-        verbose_name ="agent"
-        verbose_name_plural = "agents"
+#     class Meta:
+#         verbose_name ="agent"
+#         verbose_name_plural = "agents"
 
-    def __str__(self):
-        return self.username
+#     def __str__(self):
+#         return self.username
 
 
 class MacAddress(models.Model):
-    user = models.ForeignKey(Agent,on_delete=models.CASCADE,default=0)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,default=0)
     mac_address = models.CharField(max_length=30,verbose_name='MacAddress',null=True,unique=True)
     agent_name = models.CharField(max_length=100,verbose_name='Agent Name',null=True,blank=True)
 

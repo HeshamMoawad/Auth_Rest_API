@@ -4,7 +4,7 @@ from datetime import datetime
 GIVEACCESSBOT = "GiveAccessBot"
 
 class BackendManager(object):
-    def __init__(self,Domain:str) -> None:
+    def __init__(self,Domain:str,*args,**kwargs) -> None:
         self.Domain = Domain
 
     def send_get_access_request(self,msg:str=None):
@@ -34,10 +34,8 @@ class BackendManager(object):
         else :
             return None
 
-    
 
-model = BackendManager("http://127.0.0.1:8000")
-print(model.bots_list())
+
 
 
 
