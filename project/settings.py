@@ -46,6 +46,8 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     'users' ,
+    'home' ,
+    'tasks' ,
 ]
 
 INSTALLED_APPS = INSTALLED_APPS + THIRD_PARTY_APPS + LOCAL_APPS
